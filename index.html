@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Open Brain Memory — a unified memory layer for AI agents. Local preferences, shared vector knowledge, transcript recall, task tracking, and reusable skills.">
+  <title>Open Brain Memory — Unified Agent Memory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Skip to main content for screen readers -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ── Navigation ──────────────────────────────────────── -->
+<nav aria-label="Primary navigation">
+  <div class="container">
+    <a href="#" class="logo" aria-label="Open Brain Memory home">open<span>brain</span>.memory</a>
+    <ul role="list">
+      <li><a href="#systems">Systems</a></li>
+      <li><a href="#flow">Flow</a></li>
+      <li><a href="#demo">Demo</a></li>
+      <li><a href="#samples">Examples</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ── Hero ──────────────────────────────────────────── -->
+  <section class="hero" aria-label="Introduction">
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge" role="status"><span class="badge-dot" aria-hidden="true"></span> Unified Agent Memory</div>
+        <h1>
+          Every agent,<br>
+          <span class="gradient-text">one memory layer.</span>
+        </h1>
+        <p class="subtitle">
+          Five memory systems working in concert — local preferences, shared vector knowledge,
+          transcript recall, task tracking, and reusable procedures — so your AI agents never start from zero.
+        </p>
+        <a href="#demo" class="hero-cta" role="button">Try the routing demo &darr;</a>
+      </div>
+    </div>
+    <div class="grid-dots" aria-hidden="true"></div>
+  </section>
+
+  <!-- ── Memory Systems ────────────────────────────────── -->
+  <section id="systems" aria-labelledby="systems-title">
+    <div class="container">
+      <p class="section-label reveal">Memory Systems</p>
+      <h2 class="section-title reveal" id="systems-title">Five layers, one unified interface</h2>
+      <p class="section-desc reveal">
+        Each memory type solves a different persistence problem. Together they give agents
+        continuous context across sessions, machines, and collaborators.
+      </p>
+
+      <div class="cards-grid">
+        <!-- Hermes -->
+        <article class="card hermes reveal" aria-labelledby="card-hermes">
+          <div class="card-icon" aria-hidden="true">&#x1F3E0;</div>
+          <h3 id="card-hermes">Hermes Local Memory</h3>
+          <p>
+            File-based memory stored on the agent's machine. Tracks user preferences,
+            behavioral corrections, project-specific conventions, and agent configuration.
+            Private and instant — no network call needed.
+          </p>
+          <span class="tag">LOCAL &middot; PRIVATE</span>
+        </article>
+
+        <!-- Open Brain / Supabase -->
+        <article class="card supabase reveal" aria-labelledby="card-supabase">
+          <div class="card-icon" aria-hidden="true">&#x1F310;</div>
+          <h3 id="card-supabase">Open Brain Vector Memory</h3>
+          <p>
+            Supabase-hosted pgvector store shared across every connected agent. Stores
+            evergreen facts, project decisions, and domain knowledge. Semantic search
+            finds the right memory without exact keyword match.
+          </p>
+          <span class="tag">SHARED &middot; VECTOR SEARCH</span>
+        </article>
+
+        <!-- session_search -->
+        <article class="card session reveal" aria-labelledby="card-session">
+          <div class="card-icon" aria-hidden="true">&#x1F4D3;</div>
+          <h3 id="card-session">Session Search</h3>
+          <p>
+            Full-text search over past conversation transcripts. Lets agents recall
+            what was discussed, decided, or debugged in previous sessions — even
+            months later. Context continuity across conversation boundaries.
+          </p>
+          <span class="tag">TRANSCRIPTS &middot; RECALL</span>
+        </article>
+
+        <!-- Google Tasks -->
+        <article class="card tasks reveal" aria-labelledby="card-tasks">
+          <div class="card-icon" aria-hidden="true">&#x2705;</div>
+          <h3 id="card-tasks">Google Tasks</h3>
+          <p>
+            Actionable to-do items surfaced during conversations. Agents can create,
+            update, and complete tasks that sync with Google Tasks — turning
+            conversational intent into tracked work items.
+          </p>
+          <span class="tag">ACTIONS &middot; TRACKED</span>
+        </article>
+
+        <!-- Skills -->
+        <article class="card skills reveal" aria-labelledby="card-skills">
+          <div class="card-icon" aria-hidden="true">&#x2699;&#xFE0F;</div>
+          <h3 id="card-skills">Hermes Skills</h3>
+          <p>
+            Reusable, parameterized procedures the agent can invoke by name. From
+            "review a PR" to "deploy staging" — skills encode repeatable workflows
+            that get smarter over time.
+          </p>
+          <span class="tag">PROCEDURES &middot; REUSABLE</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Flow Diagram ──────────────────────────────────── -->
+  <section id="flow" class="flow-section" aria-labelledby="flow-title">
+    <div class="container">
+      <p class="section-label reveal">Architecture</p>
+      <h2 class="section-title reveal" id="flow-title">How memory flows</h2>
+      <p class="section-desc reveal">
+        A user message enters the router. Based on intent, the agent queries
+        one or more memory systems — sometimes all five — before responding.
+      </p>
+
+      <div class="flow-diagram reveal" role="img" aria-label="Flow diagram showing user message routed to five memory systems">
+        <!-- Source -->
+        <div class="flow-node source">
+          <h4>User Message</h4>
+          <p>"Remember to always use TypeScript strict mode"</p>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">&#x2502;</div>
+
+        <div class="flow-node">
+          <h4>Memory Router</h4>
+          <p>Classifies intent, selects systems</p>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">&#x2502;</div>
+
+        <div class="flow-branches">
+          <div class="flow-node hermes">
+            <h4>Hermes Local</h4>
+            <p>Preferences &amp; config</p>
+          </div>
+          <div class="flow-node supabase">
+            <h4>Open Brain</h4>
+            <p>Shared vector facts</p>
+          </div>
+          <div class="flow-node session">
+            <h4>Session Search</h4>
+            <p>Transcript recall</p>
+          </div>
+          <div class="flow-node tasks">
+            <h4>Google Tasks</h4>
+            <p>Actionable todos</p>
+          </div>
+          <div class="flow-node skills">
+            <h4>Skills</h4>
+            <p>Reusable procedures</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">&#x2502;</div>
+
+        <div class="flow-node source">
+          <h4>Enriched Response</h4>
+          <p>Memory-informed answer with context</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Interactive Demo ───────────────────────────────── -->
+  <section id="demo" class="demo-section" aria-labelledby="demo-title">
+    <div class="container">
+      <p class="section-label reveal">Interactive Demo</p>
+      <h2 class="section-title reveal" id="demo-title">Where does it route?</h2>
+      <p class="section-desc reveal">
+        Click a user statement below to see which memory system the router selects
+        and what it retrieves.
+      </p>
+
+      <div class="demo-container reveal">
+        <div class="demo-header">
+          <div class="demo-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <h3>Memory Router</h3>
+        </div>
+        <div class="demo-body">
+          <div class="demo-prompts" role="group" aria-label="User statement options">
+            <h4>User Statement</h4>
+            <button class="prompt-btn" data-prompt="hermes-pref" aria-pressed="false">
+              <span class="prompt-num" aria-hidden="true">1</span>
+              <span>"Always use tabs for indentation, not spaces"</span>
+            </button>
+            <button class="prompt-btn" data-prompt="hermes-correction" aria-pressed="false">
+              <span class="prompt-num" aria-hidden="true">2</span>
+              <span>"Don't add comments explaining obvious code"</span>
+            </button>
+            <button class="prompt-btn" data-prompt="supabase-fact" aria-pressed="false">
+              <span class="prompt-num" aria-hidden="true">3</span>
+              <span>"What did we decide about the API auth strategy?"</span>
+            </button>
+            <button class="prompt-btn" data-prompt="session-recall" aria-pressed="false">
+              <span class="prompt-num" aria-hidden="true">4</span>
+              <span>"What was the bug we debugged last Tuesday?"</span>
+            </button>
+            <button class="prompt-btn" data-prompt="tasks-create" aria-pressed="false">
+              <span class="prompt-num" aria-hidden="true">5</span>
+              <span>"Remind me to update the deploy docs by Friday"</span>
+            </button>
+            <button class="prompt-btn" data-prompt="skills-run" aria-pressed="false">
+              <span class="prompt-num" aria-hidden="true">6</span>
+              <span>"Run the PR review skill on this branch"</span>
+            </button>
+            <button class="prompt-btn" data-prompt="multi-route" aria-pressed="false">
+              <span class="prompt-num" aria-hidden="true">7</span>
+              <span>"What's the current status of the auth migration?"</span>
+            </button>
+          </div>
+          <div class="demo-result" aria-live="polite">
+            <h4>Routing Result</h4>
+            <div class="result-box" id="result-box">
+              <p class="result-placeholder">Select a user statement to see the routing decision.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Sample Memories ───────────────────────────────── -->
+  <section id="samples" aria-labelledby="samples-title">
+    <div class="container">
+      <p class="section-label reveal">Examples</p>
+      <h2 class="section-title reveal" id="samples-title">What memories look like</h2>
+      <p class="section-desc reveal">
+        Raw memory payloads from each system. No secrets — only structure.
+      </p>
+
+      <div class="samples-grid">
+        <!-- Hermes memory -->
+        <article class="sample-card reveal">
+          <div class="sample-card-header">
+            <h4>&#x1F3E0; Hermes Local Memory</h4>
+            <span class="source-tag hermes">user</span>
+          </div>
+          <pre><span class="comment"># ~/.hermes/memories/USER.md</span>
+<span class="key">---</span>
+name: user_style
+type: feedback
+description: Code formatting preferences
+<span class="key">---</span>
+
+Prefer tabs over spaces. Use trailing commas.
+Don't add comments explaining obvious code.
+
+<span class="comment"># Why:</span> User correction from 2026-05-03
+<span class="comment"># How to apply:</span> On all edits in this project</pre>
+        </article>
+
+        <!-- Open Brain / Supabase memory -->
+        <article class="sample-card reveal">
+          <div class="sample-card-header">
+            <h4>&#x1F310; Open Brain Vector Memory</h4>
+            <span class="source-tag supabase">fact</span>
+          </div>
+          <pre><span class="comment">// Supabase pgvector row (simplified)</span>
+{
+  <span class="key">"id"</span>: <span class="string">"f47ac10b-..."</span>,
+  <span class="key">"content"</span>: <span class="string">"Auth migration uses JWT rotation.
+    Tokens expire every 15 min.
+    Refresh tokens stored httpOnly."</span>,
+  <span class="key">"embedding"</span>: <span class="string">"[0.012, -0.034, ...]"</span>,
+  <span class="key">"metadata"</span>: {
+    <span class="key">"source"</span>: <span class="string">"project_decision"</span>,
+    <span class="key">"date"</span>: <span class="string">"2026-04-28"</span>,
+    <span class="key">"project"</span>: <span class="string">"core-api"</span>
+  },
+  <span class="key">"api_key"</span>: <span class="string">"[REDACTED]"</span>
+}</pre>
+        </article>
+
+        <!-- Session search -->
+        <article class="sample-card reveal">
+          <div class="sample-card-header">
+            <h4>&#x1F4D3; Session Search Result</h4>
+            <span class="source-tag hermes">transcript</span>
+          </div>
+          <pre><span class="comment">// Hermes local SQLite transcript index</span>
+{
+  <span class="key">"session_id"</span>: <span class="string">"sess_2026-05-02_a3f8"</span>,
+  <span class="key">"match"</span>: <span class="string">"The timeout bug was caused by
+    the connection pool not releasing
+    sockets under high load. Fixed by
+    adding idle_timeout_ms = 5000."</span>,
+  <span class="key">"relevance"</span>: <span class="string">0.91</span>,
+  <span class="key">"timestamp"</span>: <span class="string">"2026-05-02T14:32:00Z"</span>
+}</pre>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p>Open Brain Memory &mdash; a unified memory layer for AI agents.</p>
+    <p style="margin-top:8px">Built with care. No secrets included. <a href="https://github.com" target="_blank" rel="noopener">Source on GitHub</a>.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
