@@ -145,12 +145,14 @@ function initDemo() {
       // Build result HTML
       const dotClass = route.system === "multi" ? "supabase" : route.system;
       resultBox.innerHTML = `
-        <div class="result-route ${dotClass}">
-          <span class="route-dot"></span>
-          <span>→ ${route.label}</span>
+        <div class="result-content">
+          <div class="result-route ${dotClass}">
+            <span class="route-dot"></span>
+            <span>→ ${route.label}</span>
+          </div>
+          <div class="result-detail">${route.action}</div>
+          <div class="result-timing">${route.timing}</div>
         </div>
-        <div class="result-detail">${route.action}</div>
-        <div class="result-timing">${route.timing}</div>
       `;
     });
   });
@@ -178,6 +180,9 @@ function initReveal() {
 
 function initNav() {
   const nav = document.querySelector("nav");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navList = document.getElementById("nav-list");
+  const navLinks = navList ? navList.querySelectorAll("a") : [];
   let ticking = false;
 
   window.addEventListener("scroll", () => {
@@ -188,6 +193,23 @@ function initNav() {
       });
       ticking = true;
     }
+  });
+
+  if (!menuToggle || !navList) return;
+
+  menuToggle.addEventListener("click", () => {
+    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!expanded));
+    navList.classList.toggle("active", !expanded);
+    document.body.classList.toggle("nav-open", !expanded);
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      navList.classList.remove("active");
+      document.body.classList.remove("nav-open");
+    });
   });
 }
 
